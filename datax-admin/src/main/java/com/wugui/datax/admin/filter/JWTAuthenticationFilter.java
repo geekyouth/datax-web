@@ -32,61 +32,61 @@ import static com.wugui.datatx.core.util.Constants.SPLIT_COMMA;
  */
 @Slf4j
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
-
-    private ThreadLocal<Integer> rememberMe = new ThreadLocal<>();
-    private AuthenticationManager authenticationManager;
-
-    public JWTAuthenticationFilter(AuthenticationManager authenticationManager) {
-        this.authenticationManager = authenticationManager;
-        super.setFilterProcessesUrl("/api/auth/login");
-    }
-
-    @Override
-    public Authentication attemptAuthentication(HttpServletRequest request,
-                                                HttpServletResponse response) throws AuthenticationException {
-
-        // 从输入流中获取到登录的信息
-        try {
-            LoginUser loginUser = new ObjectMapper().readValue(request.getInputStream(), LoginUser.class);
-            rememberMe.set(loginUser.getRememberMe());
-            return authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(loginUser.getUsername(), loginUser.getPassword(), new ArrayList<>())
-            );
-        } catch (IOException e) {
-            logger.error("attemptAuthentication error :{}",e);
-            return null;
-        }
-    }
-
-    // 成功验证后调用的方法
-    // 如果验证成功，就生成token并返回
-    @Override
-    protected void successfulAuthentication(HttpServletRequest request,
-                                            HttpServletResponse response,
-                                            FilterChain chain,
-                                            Authentication authResult) throws IOException {
-
-        JwtUser jwtUser = (JwtUser) authResult.getPrincipal();
-        boolean isRemember = rememberMe.get() == 1;
-
-        String role = "";
-        Collection<? extends GrantedAuthority> authorities = jwtUser.getAuthorities();
-        for (GrantedAuthority authority : authorities){
-            role = authority.getAuthority();
-        }
-
-        String token = JwtTokenUtils.createToken(jwtUser.getUsername(), role, isRemember);
-        response.setHeader("token", JwtTokenUtils.TOKEN_PREFIX + token);
-        response.setCharacterEncoding("UTF-8");
-        Map<String, Object> maps = new HashMap<>();
-        maps.put("data", JwtTokenUtils.TOKEN_PREFIX + token);
-        maps.put("roles", role.split(SPLIT_COMMA));
-        response.getWriter().write(JSON.toJSON(new ReturnT<>(maps)).toString());
-    }
-
-    @Override
-    protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException, ServletException {
-        response.setCharacterEncoding("UTF-8");
-        response.getWriter().write(JSON.toJSON(new ReturnT<>(ReturnT.FAIL_CODE,I18nUtil.getString("login_param_unvalid"))).toString());
-    }
+	
+	private ThreadLocal<Integer> rememberMe = new ThreadLocal<>();
+	private AuthenticationManager authenticationManager;
+	
+	public JWTAuthenticationFilter(AuthenticationManager authenticationManager) {
+		this.authenticationManager = authenticationManager;
+		super.setFilterProcessesUrl("/api/auth/login");
+	}
+	
+	@Override
+	public Authentication attemptAuthentication(HttpServletRequest request,
+												HttpServletResponse response) throws AuthenticationException {
+		
+		// 从输入流中获取到登录的信息
+		try {
+			LoginUser loginUser = new ObjectMapper().readValue(request.getInputStream(), LoginUser.class);
+			rememberMe.set(loginUser.getRememberMe());
+			return authenticationManager.authenticate(
+				new UsernamePasswordAuthenticationToken(loginUser.getUsername(), loginUser.getPassword(), new ArrayList<>())
+			);
+		} catch (IOException e) {
+			logger.error("attemptAuthentication error :{}", e);
+			return null;
+		}
+	}
+	
+	// 成功验证后调用的方法
+	// 如果验证成功，就生成token并返回
+	@Override
+	protected void successfulAuthentication(HttpServletRequest request,
+											HttpServletResponse response,
+											FilterChain chain,
+											Authentication authResult) throws IOException {
+		
+		JwtUser jwtUser = (JwtUser) authResult.getPrincipal();
+		boolean isRemember = rememberMe.get() == 1;
+		
+		String role = "";
+		Collection<? extends GrantedAuthority> authorities = jwtUser.getAuthorities();
+		for (GrantedAuthority authority : authorities) {
+			role = authority.getAuthority();
+		}
+		
+		String token = JwtTokenUtils.createToken(jwtUser.getUsername(), role, isRemember);
+		response.setHeader("token", JwtTokenUtils.TOKEN_PREFIX + token);
+		response.setCharacterEncoding("UTF-8");
+		Map<String, Object> maps = new HashMap<>();
+		maps.put("data", JwtTokenUtils.TOKEN_PREFIX + token);
+		maps.put("roles", role.split(SPLIT_COMMA));
+		response.getWriter().write(JSON.toJSON(new ReturnT<>(maps)).toString());
+	}
+	
+	@Override
+	protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException, ServletException {
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().write(JSON.toJSON(new ReturnT<>(ReturnT.FAIL_CODE, I18nUtil.getString("login_param_unvalid"))).toString());
+	}
 }

@@ -9,23 +9,21 @@ package com.wugui.datax.admin.tool.meta;
  * @since 2020/01/05 15:45
  */
 public class HiveDatabaseMeta extends BaseDatabaseMeta implements DatabaseInterface {
-    private volatile static HiveDatabaseMeta single;
-
-    public static HiveDatabaseMeta getInstance() {
-        if (single == null) {
-            synchronized (HiveDatabaseMeta.class) {
-                if (single == null) {
-                    single = new HiveDatabaseMeta();
-                }
-            }
-        }
-        return single;
-    }
-
-    @Override
-    public String getSQLQueryTables(String... args) {
-        return "show tables";
-    }
-
-
+	private volatile static HiveDatabaseMeta single;
+	
+	public static HiveDatabaseMeta getInstance() {
+		if (single == null) {
+			synchronized (HiveDatabaseMeta.class) {
+				if (single == null) {
+					single = new HiveDatabaseMeta();
+				}
+			}
+		}
+		return single;
+	}
+	
+	@Override
+	public String getSQLQueryTables(String... args) {
+		return "show tables";
+	}
 }

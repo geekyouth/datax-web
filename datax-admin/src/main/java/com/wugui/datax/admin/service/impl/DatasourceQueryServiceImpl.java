@@ -26,75 +26,73 @@ import java.util.List;
  */
 @Service
 public class DatasourceQueryServiceImpl implements DatasourceQueryService {
-
-    @Autowired
-    private JobDatasourceService jobDatasourceService;
-
-    @Override
-    public List<String> getDBs(Long id) throws IOException {
-        //获取数据源对象
-        JobDatasource datasource = jobDatasourceService.getById(id);
-        return new MongoDBQueryTool(datasource).getDBNames();
-    }
-
-
-    @Override
-    public List<String> getTables(Long id) throws IOException {
-        //获取数据源对象
-        JobDatasource datasource = jobDatasourceService.getById(id);
-        //queryTool组装
-        if (ObjectUtil.isNull(datasource)) {
-            return Lists.newArrayList();
-        }
-        if (JdbcConstants.HBASE.equals(datasource.getDatasource())) {
-            return new HBaseQueryTool(datasource).getTableNames();
-        } else if(JdbcConstants.MONGODB.equals(datasource.getDatasource())){
-            return new MongoDBQueryTool(datasource).getCollectionNames(datasource.getDatabaseName());
-        } else {
-            BaseQueryTool qTool = QueryToolFactory.getByDbType(datasource);
-            return qTool.getTableNames();
-        }
-    }
-
-    @Override
-    public List<String> getCollectionNames(long id,String dbName) throws IOException {
-        //获取数据源对象
-        JobDatasource datasource = jobDatasourceService.getById(id);
-        //queryTool组装
-        if (ObjectUtil.isNull(datasource)) {
-            return Lists.newArrayList();
-        }
-        return new MongoDBQueryTool(datasource).getCollectionNames(dbName);
-    }
-
-
-    @Override
-    public List<String> getColumns(Long id, String tableName) throws IOException {
-        //获取数据源对象
-        JobDatasource datasource = jobDatasourceService.getById(id);
-        //queryTool组装
-        if (ObjectUtil.isNull(datasource)) {
-            return Lists.newArrayList();
-        }
-        if (JdbcConstants.HBASE.equals(datasource.getDatasource())) {
-            return new HBaseQueryTool(datasource).getColumns(tableName);
-        } else if (JdbcConstants.MONGODB.equals(datasource.getDatasource())) {
-            return new MongoDBQueryTool(datasource).getColumns(tableName);
-        } else {
-            BaseQueryTool queryTool = QueryToolFactory.getByDbType(datasource);
-            return queryTool.getColumnNames(tableName, datasource.getDatasource());
-        }
-    }
-
-    @Override
-    public List<String> getColumnsByQuerySql(Long datasourceId, String querySql) {
-        //获取数据源对象
-        JobDatasource jdbcDatasource = jobDatasourceService.getById(datasourceId);
-        //queryTool组装
-        if (ObjectUtil.isNull(jdbcDatasource)) {
-            return Lists.newArrayList();
-        }
-        BaseQueryTool queryTool = QueryToolFactory.getByDbType(jdbcDatasource);
-        return queryTool.getColumnsByQuerySql(querySql);
-    }
+	
+	@Autowired
+	private JobDatasourceService jobDatasourceService;
+	
+	@Override
+	public List<String> getDBs(Long id) throws IOException {
+		//获取数据源对象
+		JobDatasource datasource = jobDatasourceService.getById(id);
+		return new MongoDBQueryTool(datasource).getDBNames();
+	}
+	
+	@Override
+	public List<String> getTables(Long id) throws IOException {
+		//获取数据源对象
+		JobDatasource datasource = jobDatasourceService.getById(id);
+		//queryTool组装
+		if (ObjectUtil.isNull(datasource)) {
+			return Lists.newArrayList();
+		}
+		if (JdbcConstants.HBASE.equals(datasource.getDatasource())) {
+			return new HBaseQueryTool(datasource).getTableNames();
+		} else if (JdbcConstants.MONGODB.equals(datasource.getDatasource())) {
+			return new MongoDBQueryTool(datasource).getCollectionNames(datasource.getDatabaseName());
+		} else {
+			BaseQueryTool qTool = QueryToolFactory.getByDbType(datasource);
+			return qTool.getTableNames();
+		}
+	}
+	
+	@Override
+	public List<String> getCollectionNames(long id, String dbName) throws IOException {
+		//获取数据源对象
+		JobDatasource datasource = jobDatasourceService.getById(id);
+		//queryTool组装
+		if (ObjectUtil.isNull(datasource)) {
+			return Lists.newArrayList();
+		}
+		return new MongoDBQueryTool(datasource).getCollectionNames(dbName);
+	}
+	
+	@Override
+	public List<String> getColumns(Long id, String tableName) throws IOException {
+		//获取数据源对象
+		JobDatasource datasource = jobDatasourceService.getById(id);
+		//queryTool组装
+		if (ObjectUtil.isNull(datasource)) {
+			return Lists.newArrayList();
+		}
+		if (JdbcConstants.HBASE.equals(datasource.getDatasource())) {
+			return new HBaseQueryTool(datasource).getColumns(tableName);
+		} else if (JdbcConstants.MONGODB.equals(datasource.getDatasource())) {
+			return new MongoDBQueryTool(datasource).getColumns(tableName);
+		} else {
+			BaseQueryTool queryTool = QueryToolFactory.getByDbType(datasource);
+			return queryTool.getColumnNames(tableName, datasource.getDatasource());
+		}
+	}
+	
+	@Override
+	public List<String> getColumnsByQuerySql(Long datasourceId, String querySql) {
+		//获取数据源对象
+		JobDatasource jdbcDatasource = jobDatasourceService.getById(datasourceId);
+		//queryTool组装
+		if (ObjectUtil.isNull(jdbcDatasource)) {
+			return Lists.newArrayList();
+		}
+		BaseQueryTool queryTool = QueryToolFactory.getByDbType(jdbcDatasource);
+		return queryTool.getColumnsByQuerySql(querySql);
+	}
 }

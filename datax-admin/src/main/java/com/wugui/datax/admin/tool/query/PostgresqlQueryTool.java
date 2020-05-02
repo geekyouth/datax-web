@@ -13,8 +13,7 @@ import java.sql.SQLException;
  * @since 2019/8/2 11:28
  */
 public class PostgresqlQueryTool extends BaseQueryTool implements QueryToolInterface {
-    public PostgresqlQueryTool(JobDatasource jobDatasource) throws SQLException {
-        super(jobDatasource);
-    }
-
+	public PostgresqlQueryTool(JobDatasource jobDatasource) throws SQLException {
+		super(jobDatasource);
+	}
 }

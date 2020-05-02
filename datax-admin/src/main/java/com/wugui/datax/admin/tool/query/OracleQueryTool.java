@@ -13,8 +13,8 @@ import java.sql.SQLException;
  * @since 2019/7/18 9:31
  */
 public class OracleQueryTool extends BaseQueryTool implements QueryToolInterface {
-
-    public OracleQueryTool(JobDatasource jobDatasource) throws SQLException {
-        super(jobDatasource);
-    }
+	
+	public OracleQueryTool(JobDatasource jobDatasource) throws SQLException {
+		super(jobDatasource);
+	}
 }

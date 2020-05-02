@@ -11,32 +11,31 @@ import java.util.Map;
 
 @Data
 public class DataxHbasePojo {
-
-  private List<Map<String,Object>> columns;
-
-  /**
-   * 数据源信息
-   */
-  private JobDatasource jdbcDatasource;
-
-
-  private String readerHbaseConfig;
-
-  private List<String> readerTable;
-
-  private String readerMode;
-
-  private String readerMaxVersion;
-
-  private Range readerRange;
-
-  private String writerHbaseConfig;
-
-  private List<String> writerTable;
-
-  private String writerMode;
-
-  private VersionColumn writerVersionColumn;
-
-  private RowkeyColumn writerRowkeyColumn;
+	
+	private List<Map<String, Object>> columns;
+	
+	/**
+	 * 数据源信息
+	 */
+	private JobDatasource jdbcDatasource;
+	
+	private String readerHbaseConfig;
+	
+	private List<String> readerTable;
+	
+	private String readerMode;
+	
+	private String readerMaxVersion;
+	
+	private Range readerRange;
+	
+	private String writerHbaseConfig;
+	
+	private List<String> writerTable;
+	
+	private String writerMode;
+	
+	private VersionColumn writerVersionColumn;
+	
+	private RowkeyColumn writerRowkeyColumn;
 }

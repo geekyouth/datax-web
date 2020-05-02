@@ -14,16 +14,16 @@ import java.io.Serializable;
  */
 @Data
 public class HiveWriterDto implements Serializable {
-
-    private String writerDefaultFS;
-
-    private String writerFileType;
-
-    private String writerPath;
-
-    private String writerFileName;
-
-    private String writeMode;
-
-    private String writeFieldDelimiter;
+	
+	private String writerDefaultFS;
+	
+	private String writerFileType;
+	
+	private String writerPath;
+	
+	private String writerFileName;
+	
+	private String writeMode;
+	
+	private String writeFieldDelimiter;
 }

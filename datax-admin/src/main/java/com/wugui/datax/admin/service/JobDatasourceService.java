@@ -13,12 +13,13 @@ import java.io.IOException;
  * @since 2020-01-10
  */
 public interface JobDatasourceService extends IService<JobDatasource> {
-    /**
-     * 测试数据源
-     * @param jdbcDatasource
-     * @return
-     */
-    Boolean dataSourceTest(JobDatasource jdbcDatasource) throws IOException;
-
-    int update(JobDatasource datasource);
+	/**
+	 * 测试数据源
+	 *
+	 * @param jdbcDatasource
+	 * @return
+	 */
+	Boolean dataSourceTest(JobDatasource jdbcDatasource) throws IOException;
+	
+	int update(JobDatasource datasource);
 }

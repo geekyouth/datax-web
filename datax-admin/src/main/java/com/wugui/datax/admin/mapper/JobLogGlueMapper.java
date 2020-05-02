@@ -13,13 +13,12 @@ import java.util.List;
  */
 @Mapper
 public interface JobLogGlueMapper {
-
-    int save(JobLogGlue jobLogGlue);
-
-    List<JobLogGlue> findByJobId(@Param("jobId") int jobId);
-
-    int removeOld(@Param("jobId") int jobId, @Param("limit") int limit);
-
-    int deleteByJobId(@Param("jobId") int jobId);
-
+	
+	int save(JobLogGlue jobLogGlue);
+	
+	List<JobLogGlue> findByJobId(@Param("jobId") int jobId);
+	
+	int removeOld(@Param("jobId") int jobId, @Param("limit") int limit);
+	
+	int deleteByJobId(@Param("jobId") int jobId);
 }

@@ -16,34 +16,34 @@ import java.util.Map;
  */
 @Data
 public class DataxHivePojo {
-
-    /**
-     * hive列名
-     */
-    private List<Map<String,Object>> columns;
-
-    /**
-     * 数据源信息
-     */
-    private JobDatasource jdbcDatasource;
-
-    private String readerPath;
-
-    private String readerDefaultFS;
-
-    private String readerFileType;
-
-    private String readerFieldDelimiter;
-
-    private String writerDefaultFS;
-
-    private String writerFileType;
-
-    private String writerPath;
-
-    private String writerFileName;
-
-    private String writeMode;
-
-    private String writeFieldDelimiter;
+	
+	/**
+	 * hive列名
+	 */
+	private List<Map<String, Object>> columns;
+	
+	/**
+	 * 数据源信息
+	 */
+	private JobDatasource jdbcDatasource;
+	
+	private String readerPath;
+	
+	private String readerDefaultFS;
+	
+	private String readerFileType;
+	
+	private String readerFieldDelimiter;
+	
+	private String writerDefaultFS;
+	
+	private String writerFileType;
+	
+	private String writerPath;
+	
+	private String writerFileName;
+	
+	private String writeMode;
+	
+	private String writeFieldDelimiter;
 }

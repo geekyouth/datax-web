@@ -14,14 +14,13 @@ import java.util.List;
  */
 @Mapper
 public interface JobLogReportMapper {
-
-    int save(JobLogReport xxlJobLogReport);
-
-    int update(JobLogReport xxlJobLogReport);
-
-    List<JobLogReport> queryLogReport(@Param("triggerDayFrom") Date triggerDayFrom,
-                                      @Param("triggerDayTo") Date triggerDayTo);
-
-    JobLogReport queryLogReportTotal();
-
+	
+	int save(JobLogReport xxlJobLogReport);
+	
+	int update(JobLogReport xxlJobLogReport);
+	
+	List<JobLogReport> queryLogReport(@Param("triggerDayFrom") Date triggerDayFrom,
+									  @Param("triggerDayTo") Date triggerDayTo);
+	
+	JobLogReport queryLogReportTotal();
 }

@@ -12,7 +12,7 @@ import java.sql.SQLException;
  * @since 2020/01/05
  */
 public class HiveQueryTool extends BaseQueryTool implements QueryToolInterface {
-    public HiveQueryTool(JobDatasource jobDatasource) throws SQLException {
-        super(jobDatasource);
-    }
+	public HiveQueryTool(JobDatasource jobDatasource) throws SQLException {
+		super(jobDatasource);
+	}
 }

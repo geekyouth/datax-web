@@ -300,6 +300,3 @@ http://localhost:8080/index.html#/dashboard
     
     同一个执行器集群内AppName（executor.appname）需要保持一致；调度中心根据该配置动态发现不同集群的在线执行器列表。
   
-# Contact us
-
-### QQ交流群 795380631

@@ -12,7 +12,7 @@ import java.sql.SQLException;
  * @since 2019/8/2
  */
 public class SqlServerQueryTool extends BaseQueryTool implements QueryToolInterface {
-    public SqlServerQueryTool(JobDatasource jobDatasource) throws SQLException {
-        super(jobDatasource);
-    }
+	public SqlServerQueryTool(JobDatasource jobDatasource) throws SQLException {
+		super(jobDatasource);
+	}
 }

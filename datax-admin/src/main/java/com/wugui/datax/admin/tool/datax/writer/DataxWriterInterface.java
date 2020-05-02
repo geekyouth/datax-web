@@ -10,6 +10,5 @@ import com.wugui.datax.admin.tool.datax.DataxPluginInterface;
  * @since 2019/7/30
  */
 public interface DataxWriterInterface extends DataxPluginInterface {
-
-
+	
 }

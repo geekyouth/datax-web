@@ -22,28 +22,26 @@ import java.util.Map;
 @Api(tags = "首页接口")
 @RequestMapping("/api")
 public class IndexController {
-
-    @Resource
-    private JobService jobService;
-
-
-    @GetMapping("/index")
-    @ApiOperation("监控图")
-    public ReturnT<Map<String, Object>> index() {
-        return new ReturnT<>(jobService.dashboardInfo());
-    }
-
-    @PostMapping("/chartInfo")
-    @ApiOperation("图表信息")
-    public ReturnT<Map<String, Object>> chartInfo() {
-        return jobService.chartInfo();
-    }
-
-    @InitBinder
-    public void initBinder(WebDataBinder binder) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        dateFormat.setLenient(false);
-        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
-    }
-
+	
+	@Resource
+	private JobService jobService;
+	
+	@GetMapping("/index")
+	@ApiOperation("监控图")
+	public ReturnT<Map<String, Object>> index() {
+		return new ReturnT<>(jobService.dashboardInfo());
+	}
+	
+	@PostMapping("/chartInfo")
+	@ApiOperation("图表信息")
+	public ReturnT<Map<String, Object>> chartInfo() {
+		return jobService.chartInfo();
+	}
+	
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		dateFormat.setLenient(false);
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+	}
 }

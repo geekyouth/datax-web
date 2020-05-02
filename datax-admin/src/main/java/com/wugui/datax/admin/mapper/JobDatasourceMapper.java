@@ -13,6 +13,5 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface JobDatasourceMapper extends BaseMapper<JobDatasource> {
-    int update(JobDatasource datasource);
-
+	int update(JobDatasource datasource);
 }

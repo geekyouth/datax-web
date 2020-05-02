@@ -17,25 +17,24 @@ import java.util.Map;
  */
 @Data
 public class DataxMongoDBPojo {
-
-    /**
-     * hive列名
-     */
-    private List<Map<String, Object>> columns;
-
-    /**
-     * 数据源信息
-     */
-    private JobDatasource jdbcDatasource;
-
-    private String address;
-
-    private String dbName;
-
-    private String readerTable;
-
-    private String writerTable;
-
-    private UpsertInfo upsertInfo;
-
+	
+	/**
+	 * hive列名
+	 */
+	private List<Map<String, Object>> columns;
+	
+	/**
+	 * 数据源信息
+	 */
+	private JobDatasource jdbcDatasource;
+	
+	private String address;
+	
+	private String dbName;
+	
+	private String readerTable;
+	
+	private String writerTable;
+	
+	private UpsertInfo upsertInfo;
 }

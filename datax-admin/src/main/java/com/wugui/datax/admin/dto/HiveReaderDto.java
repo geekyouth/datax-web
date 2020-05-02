@@ -14,13 +14,12 @@ import java.io.Serializable;
  */
 @Data
 public class HiveReaderDto implements Serializable {
-
-    private String readerPath;
-
-    private String readerDefaultFS;
-
-    private String readerFileType;
-
-    private String readerFieldDelimiter;
-
+	
+	private String readerPath;
+	
+	private String readerDefaultFS;
+	
+	private String readerFileType;
+	
+	private String readerFieldDelimiter;
 }

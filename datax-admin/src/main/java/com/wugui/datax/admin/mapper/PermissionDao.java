@@ -9,8 +9,8 @@ import java.util.List;
 @Mapper
 @Repository
 public interface PermissionDao {
-
-    List<JobPermission> findAll();
-
-    List<JobPermission> findByAdminUserId(int userId);
+	
+	List<JobPermission> findAll();
+	
+	List<JobPermission> findByAdminUserId(int userId);
 }

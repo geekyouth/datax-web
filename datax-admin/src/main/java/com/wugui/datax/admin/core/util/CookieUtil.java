@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author xuxueli 2015-12-12 18:01:06
  */
 public class CookieUtil {
-
+	
 	// 默认缓存时间,单位/秒, 2H
 	private static final int COOKIE_MAX_AGE = Integer.MAX_VALUE;
 	// 保存路径,根路径
@@ -22,13 +22,13 @@ public class CookieUtil {
 	 * @param response
 	 * @param key
 	 * @param value
-	 * @param ifRemember 
+	 * @param ifRemember
 	 */
 	public static void set(HttpServletResponse response, String key, String value, boolean ifRemember) {
-		int age = ifRemember?COOKIE_MAX_AGE:-1;
+		int age = ifRemember ? COOKIE_MAX_AGE : -1;
 		set(response, key, value, null, COOKIE_PATH, age, true);
 	}
-
+	
 	/**
 	 * 保存
 	 *
@@ -62,7 +62,7 @@ public class CookieUtil {
 		}
 		return null;
 	}
-
+	
 	/**
 	 * 查询Cookie
 	 *
@@ -94,5 +94,4 @@ public class CookieUtil {
 			set(response, key, "", null, COOKIE_PATH, 0, true);
 		}
 	}
-
 }

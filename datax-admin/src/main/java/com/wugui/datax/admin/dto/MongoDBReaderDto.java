@@ -14,6 +14,5 @@ import java.io.Serializable;
  */
 @Data
 public class MongoDBReaderDto implements Serializable {
-
-
+	
 }

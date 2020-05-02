@@ -11,26 +11,26 @@ import java.util.Map;
  * @since 2020/03/14 12:24
  */
 public interface DataxJsonInterface {
-
-    Map<String, Object> buildJob();
-
-    Map<String, Object> buildSetting();
-
-    Map<String, Object> buildContent();
-
-    Map<String, Object> buildReader();
-
-    Map<String, Object> buildHiveReader();
-
-    Map<String, Object> buildHiveWriter();
-
-    Map<String, Object> buildHBaseReader();
-
-    Map<String, Object> buildHBaseWriter();
-
-    Map<String, Object> buildMongoDBReader();
-
-    Map<String, Object> buildMongoDBWriter();
-
-    Map<String, Object> buildWriter();
+	
+	Map<String, Object> buildJob();
+	
+	Map<String, Object> buildSetting();
+	
+	Map<String, Object> buildContent();
+	
+	Map<String, Object> buildReader();
+	
+	Map<String, Object> buildHiveReader();
+	
+	Map<String, Object> buildHiveWriter();
+	
+	Map<String, Object> buildHBaseReader();
+	
+	Map<String, Object> buildHBaseWriter();
+	
+	Map<String, Object> buildMongoDBReader();
+	
+	Map<String, Object> buildMongoDBWriter();
+	
+	Map<String, Object> buildWriter();
 }

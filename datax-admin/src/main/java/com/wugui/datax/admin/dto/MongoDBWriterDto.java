@@ -14,7 +14,6 @@ import java.io.Serializable;
  */
 @Data
 public class MongoDBWriterDto implements Serializable {
-
-    private UpsertInfo upsertInfo;
-
+	
+	private UpsertInfo upsertInfo;
 }

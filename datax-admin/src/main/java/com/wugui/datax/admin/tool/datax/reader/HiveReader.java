@@ -13,29 +13,28 @@ import java.util.Map;
  * @since 2020/01/05
  */
 public class HiveReader extends BaseReaderPlugin implements DataxReaderInterface {
-    @Override
-    public String getName() {
-        return "hdfsreader";
-    }
-
-    @Override
-    public Map<String, Object> sample() {
-        return null;
-    }
-
-
-    @Override
-    public Map<String, Object> buildHive(DataxHivePojo plugin) {
-        //构建
-        Map<String, Object> readerObj = Maps.newLinkedHashMap();
-        readerObj.put("name", getName());
-        Map<String, Object> parameterObj = Maps.newLinkedHashMap();
-        parameterObj.put("path", plugin.getReaderPath());
-        parameterObj.put("defaultFS", plugin.getReaderDefaultFS());
-        parameterObj.put("fileType", plugin.getReaderFileType());
-        parameterObj.put("fieldDelimiter", plugin.getReaderFieldDelimiter());
-        parameterObj.put("column", plugin.getColumns());
-        readerObj.put("parameter", parameterObj);
-        return readerObj;
-    }
+	@Override
+	public String getName() {
+		return "hdfsreader";
+	}
+	
+	@Override
+	public Map<String, Object> sample() {
+		return null;
+	}
+	
+	@Override
+	public Map<String, Object> buildHive(DataxHivePojo plugin) {
+		//构建
+		Map<String, Object> readerObj = Maps.newLinkedHashMap();
+		readerObj.put("name", getName());
+		Map<String, Object> parameterObj = Maps.newLinkedHashMap();
+		parameterObj.put("path", plugin.getReaderPath());
+		parameterObj.put("defaultFS", plugin.getReaderDefaultFS());
+		parameterObj.put("fileType", plugin.getReaderFileType());
+		parameterObj.put("fieldDelimiter", plugin.getReaderFieldDelimiter());
+		parameterObj.put("column", plugin.getColumns());
+		readerObj.put("parameter", parameterObj);
+		return readerObj;
+	}
 }

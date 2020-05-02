@@ -10,13 +10,12 @@ import com.wugui.datax.admin.dto.DataxJsonDto;
  * @since 2019/8/1
  */
 public interface DataxJsonService {
-
-    /**
-     * 用map接收
-     *
-     * @param dto
-     * @return
-     */
-    String buildJobJson(DataxJsonDto dto);
-
+	
+	/**
+	 * 用map接收
+	 *
+	 * @param dto
+	 * @return
+	 */
+	String buildJobJson(DataxJsonDto dto);
 }

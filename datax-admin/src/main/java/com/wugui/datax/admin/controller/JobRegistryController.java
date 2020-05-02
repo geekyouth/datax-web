@@ -26,10 +26,10 @@ import java.util.Map;
 @RequestMapping("/api/jobRegistry")
 @Api(tags = "执行器资源监控")
 public class JobRegistryController extends ApiController {
-
+	
 	@Autowired
 	private JobRegistryService jobRegistryService;
-
+	
 	/**
 	 * 分页查询所有数据
 	 *
@@ -38,17 +38,17 @@ public class JobRegistryController extends ApiController {
 	@GetMapping
 	@ApiOperation("分页查询所有数据")
 	@ApiImplicitParams(
-			{@ApiImplicitParam(paramType = "query", dataType = "String", name = "current", value = "当前页", defaultValue = "1", required = true),
-					@ApiImplicitParam(paramType = "query", dataType = "String", name = "size", value = "一页大小", defaultValue = "10", required = true),
-					@ApiImplicitParam(paramType = "query", dataType = "Boolean", name = "ifCount", value = "是否查询总数", defaultValue = "true"),
-					@ApiImplicitParam(paramType = "query", dataType = "String", name = "ascs", value = "升序字段，多个用逗号分隔"),
-					@ApiImplicitParam(paramType = "query", dataType = "String", name = "descs", value = "降序字段，多个用逗号分隔")
-			})
+		{@ApiImplicitParam(paramType = "query", dataType = "String", name = "current", value = "当前页", defaultValue = "1", required = true),
+			@ApiImplicitParam(paramType = "query", dataType = "String", name = "size", value = "一页大小", defaultValue = "10", required = true),
+			@ApiImplicitParam(paramType = "query", dataType = "Boolean", name = "ifCount", value = "是否查询总数", defaultValue = "true"),
+			@ApiImplicitParam(paramType = "query", dataType = "String", name = "ascs", value = "升序字段，多个用逗号分隔"),
+			@ApiImplicitParam(paramType = "query", dataType = "String", name = "descs", value = "降序字段，多个用逗号分隔")
+		})
 	public R<IPage<JobRegistry>> selectAll() {
 		BaseForm baseForm = new BaseForm();
 		return success(this.jobRegistryService.page(baseForm.getPlusPagingQueryEntity(), pageQueryWrapperCustom(baseForm.getParameters())));
 	}
-
+	
 	/**
 	 * 自定义查询组装
 	 *
@@ -62,9 +62,9 @@ public class JobRegistryController extends ApiController {
 		//过滤空值，分页查询相关的参数
 		Map<String, Object> columnQueryMap = PageUtils.filterColumnQueryParams(map);
 		logger.info("字段查询条件参数为: {}", columnQueryMap);
-
+		
 		QueryWrapper<JobRegistry> queryWrapper = new QueryWrapper<>();
-
+		
 		//排序 操作
 		pageHelperParams.forEach((k, v) -> {
 			switch (k) {
@@ -76,7 +76,7 @@ public class JobRegistryController extends ApiController {
 					break;
 			}
 		});
-
+		
 		//遍历进行字段查询条件组装
 		columnQueryMap.forEach((k, v) -> {
 			switch (k) {
@@ -87,7 +87,7 @@ public class JobRegistryController extends ApiController {
 					queryWrapper.eq(StrUtil.toUnderlineCase(k), v);
 			}
 		});
-
+		
 		return queryWrapper;
 	}
 }

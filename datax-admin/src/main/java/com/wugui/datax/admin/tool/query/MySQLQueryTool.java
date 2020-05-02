@@ -13,9 +13,8 @@ import java.sql.SQLException;
  * @since 2019/7/18 9:31
  */
 public class MySQLQueryTool extends BaseQueryTool implements QueryToolInterface {
-
-    public MySQLQueryTool(JobDatasource jobDatasource) throws SQLException {
-        super(jobDatasource);
-    }
-
+	
+	public MySQLQueryTool(JobDatasource jobDatasource) throws SQLException {
+		super(jobDatasource);
+	}
 }

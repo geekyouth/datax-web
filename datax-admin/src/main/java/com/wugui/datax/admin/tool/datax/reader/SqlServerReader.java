@@ -10,13 +10,13 @@ import java.util.Map;
  * @since 2019/8/2
  */
 public class SqlServerReader extends BaseReaderPlugin implements DataxReaderInterface {
-    @Override
-    public String getName() {
-        return "sqlserverreader";
-    }
-
-    @Override
-    public Map<String, Object> sample() {
-        return null;
-    }
+	@Override
+	public String getName() {
+		return "sqlserverreader";
+	}
+	
+	@Override
+	public Map<String, Object> sample() {
+		return null;
+	}
 }

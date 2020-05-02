@@ -16,12 +16,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class DasColumn {
-
-    private String columnName;
-
-    private String columnTypeName;
-
-    private String columnClassName;
-
-    private String columnComment;
+	
+	private String columnName;
+	
+	private String columnTypeName;
+	
+	private String columnClassName;
+	
+	private String columnComment;
 }

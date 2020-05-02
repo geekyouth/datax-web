@@ -16,29 +16,28 @@ import java.sql.SQLException;
  */
 @MappedTypes({String.class})
 public class AESEncryptHandler extends BaseTypeHandler<String> {
-
-
-    @Override
-    public void setNonNullParameter(PreparedStatement ps, int i, String parameter, JdbcType jdbcType) throws SQLException {
-        ps.setString(i, AESUtil.encrypt(parameter));
-    }
-
-    @Override
-    public String getNullableResult(ResultSet rs, String columnName) throws SQLException {
-        String columnValue = rs.getString(columnName);
-        return AESUtil.decrypt(columnValue);
-    }
-
-    @Override
-    public String getNullableResult(ResultSet rs, int columnIndex) throws SQLException {
-        String columnValue = rs.getString(columnIndex);
-        return AESUtil.decrypt(columnValue);
-    }
-
-    @Override
-    public String getNullableResult(CallableStatement cs, int columnIndex)
-            throws SQLException {
-        String columnValue = cs.getString(columnIndex);
-        return AESUtil.decrypt(columnValue);
-    }
+	
+	@Override
+	public void setNonNullParameter(PreparedStatement ps, int i, String parameter, JdbcType jdbcType) throws SQLException {
+		ps.setString(i, AESUtil.encrypt(parameter));
+	}
+	
+	@Override
+	public String getNullableResult(ResultSet rs, String columnName) throws SQLException {
+		String columnValue = rs.getString(columnName);
+		return AESUtil.decrypt(columnValue);
+	}
+	
+	@Override
+	public String getNullableResult(ResultSet rs, int columnIndex) throws SQLException {
+		String columnValue = rs.getString(columnIndex);
+		return AESUtil.decrypt(columnValue);
+	}
+	
+	@Override
+	public String getNullableResult(CallableStatement cs, int columnIndex)
+		throws SQLException {
+		String columnValue = cs.getString(columnIndex);
+		return AESUtil.decrypt(columnValue);
+	}
 }

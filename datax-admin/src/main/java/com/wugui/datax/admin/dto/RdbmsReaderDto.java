@@ -3,7 +3,6 @@ package com.wugui.datax.admin.dto;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * 构建json dto
@@ -15,10 +14,10 @@ import java.util.List;
  */
 @Data
 public class RdbmsReaderDto implements Serializable {
-
-    private String readerSplitPk;
-
-    private String whereParams;
-
-    private String querySql;
+	
+	private String readerSplitPk;
+	
+	private String whereParams;
+	
+	private String querySql;
 }

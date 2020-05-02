@@ -14,28 +14,24 @@ import java.util.List;
 @Mapper
 @Repository
 public interface JobUserMapper {
-
-    List<JobUser> pageList(@Param("offset") int offset,
-                           @Param("pagesize") int pagesize,
-                           @Param("username") String username);
-
-    int pageListCount(@Param("offset") int offset,
-                      @Param("pagesize") int pagesize,
-                      @Param("username") String username);
-
-    JobUser loadByUserName(@Param("username") String username);
-
-    JobRole getRoleByUserId(@Param("userId") int userId);
-
-
-    JobUser getUserById(@Param("id") int id);
-
-    int save(JobUser jobUser);
-
-    int update(JobUser jobUser);
-
-    int delete(@Param("id") int id);
-
-
-
+	
+	List<JobUser> pageList(@Param("offset") int offset,
+						   @Param("pagesize") int pagesize,
+						   @Param("username") String username);
+	
+	int pageListCount(@Param("offset") int offset,
+					  @Param("pagesize") int pagesize,
+					  @Param("username") String username);
+	
+	JobUser loadByUserName(@Param("username") String username);
+	
+	JobRole getRoleByUserId(@Param("userId") int userId);
+	
+	JobUser getUserById(@Param("id") int id);
+	
+	int save(JobUser jobUser);
+	
+	int update(JobUser jobUser);
+	
+	int delete(@Param("id") int id);
 }

@@ -6,12 +6,12 @@ import java.io.Serializable;
 
 @Data
 public class HbaseWriterDto implements Serializable {
-
-  private String writeNullMode;
-
-  private String writerMode;
-
-  private RowkeyColumn writerRowkeyColumn;
-
-  private VersionColumn writerVersionColumn;
+	
+	private String writeNullMode;
+	
+	private String writerMode;
+	
+	private RowkeyColumn writerRowkeyColumn;
+	
+	private VersionColumn writerVersionColumn;
 }

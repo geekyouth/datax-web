@@ -13,33 +13,32 @@ import java.util.List;
  */
 @Mapper
 public interface JobRegistryMapper extends BaseMapper<JobRegistry> {
-
-    public List<Integer> findDead(@Param("timeout") int timeout,
-                                  @Param("nowTime") Date nowTime);
-
-    public int removeDead(@Param("ids") List<Integer> ids);
-
-    public List<JobRegistry> findAll(@Param("timeout") int timeout,
-                                     @Param("nowTime") Date nowTime);
-
-    public int registryUpdate(@Param("registryGroup") String registryGroup,
-                              @Param("registryKey") String registryKey,
-                              @Param("registryValue") String registryValue,
-                              @Param("cpuUsage") double cpuUsage,
-                              @Param("memoryUsage") double memoryUsage,
-                              @Param("loadAverage") double loadAverage,
-                              @Param("updateTime") Date updateTime);
-
-    public int registrySave(@Param("registryGroup") String registryGroup,
-                            @Param("registryKey") String registryKey,
-                            @Param("registryValue") String registryValue,
-                            @Param("cpuUsage") double cpuUsage,
-                            @Param("memoryUsage") double memoryUsage,
-                            @Param("loadAverage") double loadAverage,
-                            @Param("updateTime") Date updateTime);
-
-    public int registryDelete(@Param("registryGroup") String registryGroup,
-                              @Param("registryKey") String registryKey,
-                              @Param("registryValue") String registryValue);
-
+	
+	List<Integer> findDead(@Param("timeout") int timeout,
+						   @Param("nowTime") Date nowTime);
+	
+	int removeDead(@Param("ids") List<Integer> ids);
+	
+	List<JobRegistry> findAll(@Param("timeout") int timeout,
+							  @Param("nowTime") Date nowTime);
+	
+	int registryUpdate(@Param("registryGroup") String registryGroup,
+					   @Param("registryKey") String registryKey,
+					   @Param("registryValue") String registryValue,
+					   @Param("cpuUsage") double cpuUsage,
+					   @Param("memoryUsage") double memoryUsage,
+					   @Param("loadAverage") double loadAverage,
+					   @Param("updateTime") Date updateTime);
+	
+	int registrySave(@Param("registryGroup") String registryGroup,
+					 @Param("registryKey") String registryKey,
+					 @Param("registryValue") String registryValue,
+					 @Param("cpuUsage") double cpuUsage,
+					 @Param("memoryUsage") double memoryUsage,
+					 @Param("loadAverage") double loadAverage,
+					 @Param("updateTime") Date updateTime);
+	
+	int registryDelete(@Param("registryGroup") String registryGroup,
+					   @Param("registryKey") String registryKey,
+					   @Param("registryValue") String registryValue);
 }

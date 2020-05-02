@@ -14,8 +14,8 @@ import java.io.Serializable;
  */
 @Data
 public class TriggerJobDto implements Serializable {
-
-    private String executorParam;
-
-    private int jobId;
+	
+	private String executorParam;
+	
+	private int jobId;
 }

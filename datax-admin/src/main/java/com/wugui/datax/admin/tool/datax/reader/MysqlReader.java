@@ -1,6 +1,5 @@
 package com.wugui.datax.admin.tool.datax.reader;
 
-
 import java.util.Map;
 
 /**
@@ -12,14 +11,13 @@ import java.util.Map;
  * @since 2019/7/30 23:07
  */
 public class MysqlReader extends BaseReaderPlugin implements DataxReaderInterface {
-    @Override
-    public String getName() {
-        return "mysqlreader";
-    }
-
-
-    @Override
-    public Map<String, Object> sample() {
-        return null;
-    }
+	@Override
+	public String getName() {
+		return "mysqlreader";
+	}
+	
+	@Override
+	public Map<String, Object> sample() {
+		return null;
+	}
 }

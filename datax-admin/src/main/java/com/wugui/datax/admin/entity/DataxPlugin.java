@@ -16,25 +16,24 @@ import java.io.Serializable;
 @TableName(value = "datax_plugin")
 @Data
 public class DataxPlugin extends Model<DataxPlugin> {
-
-    private Integer id;
-    //插件类型，reader writer
-    private String pluginType;
-    //插件名，用作主键
-    private String pluginName;
-    //json模板
-    private String templateJson;
-    //注释
-    private String comments;
-
-
-    /**
-     * 获取主键值
-     *
-     * @return 主键值
-     */
-    @Override
-    protected Serializable pkVal() {
-        return this.id;
-    }
+	
+	private Integer id;
+	//插件类型，reader writer
+	private String pluginType;
+	//插件名，用作主键
+	private String pluginName;
+	//json模板
+	private String templateJson;
+	//注释
+	private String comments;
+	
+	/**
+	 * 获取主键值
+	 *
+	 * @return 主键值
+	 */
+	@Override
+	protected Serializable pkVal() {
+		return this.id;
+	}
 }

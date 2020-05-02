@@ -11,21 +11,21 @@ import lombok.Data;
  */
 @Data
 public class ColumnInfo {
-    /**
-     * 字段名称
-     */
-    private String name;
-    /**
-     * 注释
-     */
-    private String comment;
-    /**
-     * 字段类型
-     */
-    private String type;
-
-    /**
-     * 是否是主键列
-     */
-    private Boolean ifPrimaryKey;
+	/**
+	 * 字段名称
+	 */
+	private String name;
+	/**
+	 * 注释
+	 */
+	private String comment;
+	/**
+	 * 字段类型
+	 */
+	private String type;
+	
+	/**
+	 * 是否是主键列
+	 */
+	private Boolean ifPrimaryKey;
 }
